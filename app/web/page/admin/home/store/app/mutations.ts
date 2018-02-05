@@ -3,10 +3,10 @@
 import {
   SET_ARTICLE_LIST,
   SET_ARTICLE_DETAIL
-} from './mutation-type'
+} from './mutation-type';
 
 const mutations = {
-  [SET_ARTICLE_LIST] (state, { list, total }){
+  [SET_ARTICLE_LIST](state, { list, total }) {
     state.articleTotal = total;
     state.articleList = list;
   },
@@ -14,4 +14,4 @@ const mutations = {
     state.article = data;
   }
 };
-export default mutations
+export default mutations;

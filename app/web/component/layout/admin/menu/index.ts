@@ -1,40 +1,40 @@
 const menu = {
-  home:{
+  home: {
     name: '首页',
     path: '/',
     icon: 'fa fa-home',
   },
-  content:{
+  content: {
     name: '内容管理',
     icon: 'fa fa-file',
     children: {
-      list:{
+      list: {
         name: '文章管理',
         path: '/article/list'
       },
-      add:{
+      add: {
         name: '添加文章',
         path: '/article/add'
       }
     }
   },
-  learn:{
+  learn: {
     name: '学习资料',
     icon: 'fa fa-file',
     children: {
-      Egg:{
+      Egg: {
         name: 'Egg学习',
         path: '/'
       },
-      Vue:{
+      Vue: {
         name: 'Vue学习',
         path: '/'
       },
-      TypeScript:{
+      TypeScript: {
         name: 'TypeScript',
         path: '/'
       },
-      EasyWebpack:{
+      EasyWebpack: {
         name: 'easywebpack',
         path: '/'
       }

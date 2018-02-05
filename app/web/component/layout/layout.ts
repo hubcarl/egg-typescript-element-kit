@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import { PluginObject } from 'vue/types/plugin';
-export default function createLayout(name : string, components : object, tpl : string) : PluginObject<any> {
+export default function createLayout(name: string, components: object, tpl: string): PluginObject<any> {
   return {
     name,
-    props: [ 'title', 'description', 'keywords' ],
+    props: ['title', 'description', 'keywords'],
     components,
     computed: {
       vTitle() {
@@ -43,6 +43,8 @@ export default function createLayout(name : string, components : object, tpl : s
                       ${tpl}
                     </body>
                   </html>`,
-    install(Vue, options){},
+    install(vue, options) {
+      //
+    }
   };
-};
+}

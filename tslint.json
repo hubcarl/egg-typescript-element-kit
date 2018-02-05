@@ -5,11 +5,13 @@
   ],
   "jsRules": {},
   "rules": {
+    "ordered-imports": false,
     "trailing-comma": false,
     "quotemark": [true, "single", "jsx-double"],
     "eofline": false,
     "object-literal-sort-keys": false,
-    "interface-name": false
+    "interface-name": false,
+    "arrow-parens": false
   },
   "rulesDirectory": ["app"]
 }
