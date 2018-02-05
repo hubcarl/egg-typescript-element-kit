@@ -39,34 +39,29 @@ module.exports = {
       name: new ServiceWorkerWebpackPlugin({
         prefix: 'sw',
         hash: true,
-        strategy: [
-          {
-            name: 'index',
-            entry: 'index/index',
-          },
-          {
-            name: 'category',
-            entry: ['category/category', 'about/about'],
-            options: {
-              runtimeCaching: [
-                {
-                  urlPattern: /^https:\/\/category\.com\/api/,
-                  handler: 'fastest'
-                }
-              ]
-            }
+        strategy: [{
+          name: 'index',
+          entry: 'index/index',
+        },
+        {
+          name: 'category',
+          entry: ['category/category', 'about/about'],
+          options: {
+            runtimeCaching: [{
+              urlPattern: /^https:\/\/category\.com\/api/,
+              handler: 'fastest'
+            }]
           }
+        }
         ],
         manifest: 'config/manifest.json',
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/example\.com/,
-            handler: 'fastest'
-          }, {
-            urlPattern: /^https:\/\/example2\.com/,
-            handler: 'fastest'
-          }
-        ]
+        runtimeCaching: [{
+          urlPattern: /^https:\/\/example\.com/,
+          handler: 'fastest'
+        }, {
+          urlPattern: /^https:\/\/example2\.com/,
+          handler: 'fastest'
+        }]
       })
     }
   },

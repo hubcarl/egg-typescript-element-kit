@@ -1,4 +1,7 @@
 {
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "eslint.autoFixOnSave": true,
   "files.exclude": {
     "USE_GITIGNORE": true,
     "**/*.js": {

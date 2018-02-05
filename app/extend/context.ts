@@ -1,5 +1,5 @@
 export default {
-  get db(){
+  get db() {
     return this.app.db;
-  }
-}
+  },
+};

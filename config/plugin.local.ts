@@ -1,19 +1,19 @@
 exports.cors = {
   enable: true,
-  package: 'egg-cors'
+  package: 'egg-cors',
 };
 
 exports.webpack = {
   enable: true,
-  package: 'egg-webpack'
+  package: 'egg-webpack',
 };
 
 exports.webpackvue = {
   enable: true,
-  package: 'egg-webpack-vue'
+  package: 'egg-webpack-vue',
 };
 
 exports.logview = {
   package: 'egg-logview',
-  env: ['local']
+  env: ['local'],
 };

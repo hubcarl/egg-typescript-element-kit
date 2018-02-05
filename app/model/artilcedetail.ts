@@ -1,7 +1,4 @@
 export default class ArticleDetail {
-  public id : number;
-  public content : string;
-  constructor() {
-
-  }
+  public id: number;
+  public content: string;
 }

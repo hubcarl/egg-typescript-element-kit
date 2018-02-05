@@ -9,7 +9,4 @@ export default class Article {
   public hits: number;
   public url: string;
   public status: number;
-  constructor() {
-
-  }
 }

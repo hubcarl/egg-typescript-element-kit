@@ -6,5 +6,5 @@ export default {
       this[DBSymbol] = new FileDB();
     }
     return this[DBSymbol];
-  }
-}
+  },
+};

@@ -1,22 +1,22 @@
-import * as Model from '../../mocks/article/list';
 import { Controller } from 'egg';
+import * as Model from '../../mocks/article/list';
 export default class AdminController extends Controller {
-  
-  async login() {
+
+  public async login() {
     await this.ctx.render('admin/login/login.js', {});
   }
 
-  async home() {
+  public async home() {
     await this.ctx.render('admin/home/home.js', { url: this.ctx.url.replace(/\/admin/, '') });
   }
 
-  async list() {
+  public async list() {
     const pageIndex = this.ctx.query.pageIndex;
     const pageSize = this.ctx.query.pageSize;
     this.ctx.body = Model.getPage(pageIndex, pageSize);
   }
 
-  async detail() {
+  public async detail() {
     const id = this.ctx.query.id;
     this.ctx.body = Model.getDetail(id);
   }

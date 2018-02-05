@@ -13,8 +13,8 @@
     "dev": "npm run tsc:w & node index.js",
     "start": "NODE_ENV=production EGG_SERVER_ENV=prod node index.js",
     "start:test": "cross-env EGG_SERVER_ENV=test node index.js",
-    "lint": "eslint .",
-    "fix": "eslint --fix ."
+    "lint": "tslint --project .",
+    "fix": "tslint --project . --fix"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -59,10 +59,6 @@
     "egg-logview": "^1.0.0",
     "egg-webpack": "^3.2.8",
     "egg-webpack-vue": "^2.0.0",
-    "eslint": "^4.3.0",
-    "eslint-config-egg": "^5.0.0",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-vue": "^2.0.1",
     "ip": "^1.1.5",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",

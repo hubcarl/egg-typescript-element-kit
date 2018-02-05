@@ -7,7 +7,7 @@ export default class ArticeService extends Service {
     this.collection = ctx.db.instance.get('article');
   }
 
-  getArtilceList(pageIndex : number = 1, pageSize : number = 10) {
+  public getArtilceList(pageIndex: number = 1, pageSize: number = 10) {
     return this.collection.value();
   }
-};
+}
