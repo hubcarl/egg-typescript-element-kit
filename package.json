@@ -11,13 +11,14 @@
     "build:test": "npm run tsc && cross-env easywebpack build test",
     "build:prod": "npm run tsc && cross-env easywebpack build prod",
     "dev": "npm run tsc:w & node index.js",
-    "start": "NODE_ENV=production EGG_SERVER_ENV=prod node index.js",
+    "start": "cross-env NODE_ENV=production EGG_SERVER_ENV=prod node index.js",
     "start:test": "cross-env EGG_SERVER_ENV=test node index.js",
     "lint": "tslint --project .",
     "fix": "tslint --project . --fix"
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "cross-env": "^5.0.0",
     "egg": "^2.1.0",
     "egg-cors": "^2.0.0",
     "egg-logger": "^1.5.0",
@@ -51,7 +52,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-env": "^1.6.0",
-    "cross-env": "^5.0.0",
     "cz-conventional-changelog": "^2.1.0",
     "directory-named-webpack-plugin": "^2.2.3",
     "easywebpack-cli": "^3.6.0",
