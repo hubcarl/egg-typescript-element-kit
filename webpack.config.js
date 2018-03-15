@@ -28,7 +28,9 @@ module.exports = {
   },
   dll: ['vue', 'axios', 'vuex', 'vuex-router-sync'],
   loaders: {
-    less: true,
+    less: {
+      framework: true
+    },
     typescript: true
   },
   plugins: {
