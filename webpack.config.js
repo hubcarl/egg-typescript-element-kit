@@ -17,9 +17,7 @@ module.exports = {
       server: 'app/web/framework/vue/entry/server-loader.ts',
     }
   },
-
   alias: {
-    sw: 'app/web/framework/sw/sw.ts',
     server: 'app/web/framework/vue/entry/server.ts',
     client: 'app/web/framework/vue/entry/client.ts',
     asset: 'app/web/asset',
@@ -34,13 +32,7 @@ module.exports = {
     typescript: true
   },
   plugins: {
-    serviceWorker: {
-      type: 'client',
-      name: new ServiceWorkerWebpackPlugin({
-        strategy: 'multiple',
-        manifest: 'config/manifest.json',
-      })
-    }
+    
   },
   done() {
 

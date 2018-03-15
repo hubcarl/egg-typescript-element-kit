@@ -63,20 +63,12 @@
             this.fetch();
           }, 1500);
         }
-      },
-      registerServiceWorker(){
-
-        import('sw').then(sw =>{
-          const serviceWorker = sw.default;
-          serviceWorker.register('index');
-        });
       }
     },
     mounted() {
       window.addEventListener('scroll', ()=>{
         this.loadPage();
       }, false);
-      this.registerServiceWorker();
     }
   }
 </script>

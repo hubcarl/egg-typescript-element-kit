@@ -17,14 +17,14 @@
 
 - Egg： ^2.x.x
 - Node: Node ^8.x.x+,
-- Webpack ^3.10.1
+- Webpack ^4.x.x
 - Vue: ^2.5.0
 - TypeScript: ^2.6.2
 - Element UI: ^2.0.0
-- [easywebpack-vue](https://github.com/hubcarl/easywebpack) ^3.6.0
-- [egg-view-vue-ssr](https://github.com/hubcarl/egg-view-vue-ssr) ^3.0.0
-- [egg-webpack](https://github.com/hubcarl/egg-webpack) ^3.2.6
-- [egg-webpack-vue](https://github.com/hubcarl/egg-webpack-vue) ^2.0.0
+- [easywebpack-vue](https://github.com/hubcarl/easywebpack)
+- [egg-view-vue-ssr](https://github.com/hubcarl/egg-view-vue-ssr)
+- [egg-webpack](https://github.com/hubcarl/egg-webpack)
+- [egg-webpack-vue](https://github.com/hubcarl/egg-webpack-vue)
 
 ### 项目特性
 
