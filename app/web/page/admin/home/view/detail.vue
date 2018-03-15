@@ -1,6 +1,6 @@
 <template>
   <div style="font-size: 24px; text-align: center">
-    vue-server-render detail
+    vue-server-render detail <router-link to="/article/add">Add</router-link>
     <img src="../../../../asset/images/egg-vue-webpack-dev.png"/>
   </div>
 </template>

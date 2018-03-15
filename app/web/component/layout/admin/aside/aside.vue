@@ -32,7 +32,7 @@
     data(){
       return {
         menu
-      }
+      };
     },
     methods: {
       handleOpen(key, keyPath) {

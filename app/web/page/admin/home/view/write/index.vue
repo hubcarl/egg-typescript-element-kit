@@ -23,7 +23,6 @@
 <script type="ts">
   export default {
   components: { 
-     MaterialInput: () =>import('vue-material-input'),
      MarkdownEditor: () =>import('component/MarkdownEditor/index.vue')
   },
   data() {
@@ -36,12 +35,7 @@
   },
   computed:{},
   methods: {
-    markdown2Html() {
-      import('showdown').then(showdown => {
-        const converter = new showdown.Converter()
-        this.html = converter.makeHtml(this.content)
-      })
-    }
+    
   },
   mounted(){
     this.isShowEditor = true;

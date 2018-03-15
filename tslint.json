@@ -11,7 +11,8 @@
     "eofline": false,
     "object-literal-sort-keys": false,
     "interface-name": false,
-    "arrow-parens": false
+    "arrow-parens": false,
+    "no-console": false
   },
   "rulesDirectory": ["app"]
 }

@@ -3,6 +3,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Dashboard from '../view/dashboard/index.vue';
 import ArticleList from '../view/list.vue';
+import AddArticle from '../view/write/index.vue';
 
 Vue.use(VueRouter);
 
@@ -20,7 +21,7 @@ export default new VueRouter({
     },
     {
       path: '/article/add',
-      component: () => import('../view/write/index.vue')
+      component: AddArticle
     },
     {
       path: '/article/detail/:id',

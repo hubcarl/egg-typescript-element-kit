@@ -3,7 +3,7 @@
       <div class="search">
         <el-row class="clear">
               <label> 标题:</label><el-input class="search-input" clearable v-model="title" placeholder="关键字"></el-input>
-              <label> 状态:</label><el-select  v-model="name" placeholder="状态">
+              <label> 状态:</label><el-select  v-model="statusNumber" placeholder="状态">
                 <el-option v-for="item in status"
                           :key="item.id"
                           :label="item.name"
@@ -101,6 +101,8 @@ export default {
   components: {},
   data() {
     return {
+      title: '',
+      statusNumber: 1,
       pageIndex: 1,
       pageSize: 10,
       //请求时的loading效果
@@ -111,7 +113,7 @@ export default {
   },
   methods: {
     write(){
-
+      this.$router.push('/article/add')
     },
     //刷新
     fetch() {
