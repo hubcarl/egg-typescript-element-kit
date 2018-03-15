@@ -11,6 +11,7 @@
     "start": "egg-scripts start",
     "lint": "tslint --project .",
     "fix": "tslint --project . --fix",
+    "debug": "egg-bin debug",
     "autod": "egg-bin autod",
     "cov": "egg-bin cov",
     "test": "npm run lint && egg-bin test"
@@ -56,6 +57,7 @@
     "egg-logview": "^1.0.0",
     "egg-webpack": "^4.0.0",
     "egg-webpack-vue": "^2.0.0",
+    "imagemin-webpack-plugin": "^2.1.0",
     "ip": "^1.1.5",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
