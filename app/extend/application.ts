@@ -1,9 +1,10 @@
-import FileDB from '../lib/db';
+import DB from '../lib/db/base';
+import DBFactory from '../lib/db/factory';
 const DBSymbol = Symbol('Application#db');
 export default {
-  get db(): FileDB {
+  get db(): DB {
     if (!this[DBSymbol]) {
-      this[DBSymbol] = new FileDB();
+      this[DBSymbol] = DBFactory();
     }
     return this[DBSymbol];
   },

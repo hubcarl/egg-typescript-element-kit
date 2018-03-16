@@ -1,9 +1,10 @@
 import { Controller } from 'egg';
 import * as Model from '../../mocks/article/list';
+import Article from '../../model/article';
 export default class AdminController extends Controller {
 
   public async login() {
-    await this.ctx.render('admin/login/login.js', {});
+    await this.ctx.renderClient('admin/login/login.js', {});
   }
 
   public async home() {
@@ -11,9 +12,14 @@ export default class AdminController extends Controller {
   }
 
   public async list() {
-    const pageIndex = this.ctx.query.pageIndex;
-    const pageSize = this.ctx.query.pageSize;
-    this.ctx.body = Model.getPage(pageIndex, pageSize);
+    const { title, cagetoryId, tag, pageIndex, pageSize } = this.ctx.request.body;
+    const list = this.service.article.getArtilceList(title, cagetoryId, tag, pageIndex, pageSize);
+    this.ctx.body = list;
+  }
+
+  public async add() {
+    const article = this.ctx.request.body;
+    this.ctx.body = this.service.article.saveArticle(article);
   }
 
   public async detail() {

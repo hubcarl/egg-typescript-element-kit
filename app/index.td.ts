@@ -9,11 +9,11 @@ import ArticleService from './service/article';
 
 declare module 'egg' {
   interface Application {
-    db: any;
+    db: FileDB;
   }
 
   interface Context {
-    db: any;
+    db: FileDB;
   }
 
   interface IController {

@@ -42,6 +42,10 @@
         width: 64px;
       }
     }
+
+    .app-body {
+      margin-left: 80px,
+    }
   }
 </style>
 <script type="ts">

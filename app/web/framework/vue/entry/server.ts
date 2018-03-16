@@ -6,6 +6,7 @@ import '../component';
 export default function render(options) {
   if (options.store && options.router) {
     return (context) => {
+      options.store.replaceState({ ...options.store.state, ...context.state });
       options.router.push({ path: context.state.url });
       const matchedComponents = options.router.getMatchedComponents();
       if (!matchedComponents) {
@@ -19,7 +20,7 @@ export default function render(options) {
           return null;
         })
       ).then(() => {
-        context.state = Object.assign({}, context.state, options.store.state);
+        context.state = { ...options.store.state, ...context.state };
         return new Vue(options);
       });
     };

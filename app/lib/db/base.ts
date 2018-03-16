@@ -1,0 +1,28 @@
+export default class DB {
+  public instance;
+  public name: string;
+  constructor(name: string = 'blog.json') {
+    this.name = name;
+  }
+
+  public get(collectionName: string) {
+    return null;
+  }
+
+  public add(collectionName: string, json: object) {
+    return null;
+  }
+
+  public update(collectionName: string, json: object) {
+    return null;
+  }
+
+  public delete(collectionName: string, field: number | string) {
+    return null;
+  }
+
+  public getPager(collectionName: string, where: object, pageIndex: number = 1, pageSize: number = 10,
+                  orderByField: string = 'id', orderBy: string = 'desc') {
+    return null;
+  }
+}

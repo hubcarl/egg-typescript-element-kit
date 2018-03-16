@@ -2,8 +2,15 @@
   <div>
       <div class="search">
         <el-row class="clear">
-              <label> 标题:</label><el-input class="search-input" clearable v-model="title" placeholder="关键字"></el-input>
-              <label> 状态:</label><el-select  v-model="statusNumber" placeholder="状态">
+              <label> 标题:</label><el-input class="search-input" clearable v-model="q.title" placeholder="关键字"></el-input>
+              <label> 分类:</label><el-select  v-model="q.categoryId" placeholder="分类">
+                <el-option v-for="item in categories"
+                          :key="item.id"
+                          :label="item.name"
+                          :value="item.id">
+                </el-option>
+              </el-select>
+              <label> 状态:</label><el-select  v-model="q.statusId" placeholder="状态">
                 <el-option v-for="item in status"
                           :key="item.id"
                           :label="item.name"
@@ -83,9 +90,9 @@
           <el-pagination
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
-              :current-page="pageIndex"
+              :current-page="q.pageIndex"
               :page-sizes="[10, 15, 20, 50]"
-              :page-size="pageSize"
+              :page-size="q.pageSize"
               layout="total, sizes, prev, pager, next, jumper"
               :total="total">
           </el-pagination>
@@ -101,10 +108,13 @@ export default {
   components: {},
   data() {
     return {
-      title: '',
-      statusNumber: 1,
-      pageIndex: 1,
-      pageSize: 10,
+      q: {
+        title: "",
+        categoryId: -1,
+        statusId: -1,
+        pageIndex: 1,
+        pageSize: 10
+      },
       //请求时的loading效果
       loading: false,
       //批量选择数组
@@ -112,24 +122,24 @@ export default {
     };
   },
   methods: {
-    write(){
-      this.$router.push('/article/add')
+    write() {
+      this.$router.push("/article/add");
     },
     //刷新
     fetch() {
-      this.$store.dispatch("FETCH_ARTICLE_LIST", { pageIndex: this.pageIndex, pageSize : this.pageSize })
+      this.$store.dispatch("FETCH_ARTICLE_LIST", this.q);
     },
     handleSelectionChange(val) {
       console.log("handleSelectionChange", val);
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
-      this.pageSize = val;
+      this.q.pageSize = val;
       this.fetch();
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
-      this.pageIndex = val;
+      this.q.pageIndex = val;
       this.fetch();
     },
     handleEdit(index, row) {
@@ -149,29 +159,41 @@ export default {
         cancelButtonText: "取消",
         type: "warning"
       }).then(() => {
-          this.loading = true;
-          this.$message.success(msg);
-          this.loading = false;
-        });
+        this.loading = true;
+        this.$message.success(msg);
+        this.loading = false;
+      });
     }
   },
   computed: {
-    status(){
-      return [ { id: 0, name: '草稿'}, { id: 1, name: '已发布' }];
+    status() {
+      return [
+        { id: -1, name: "--请选择--" },
+        { id: 0, name: "草稿" },
+        { id: 1, name: "已发布" }
+      ];
     },
-    total(){
+    categories() {
+      return [
+        { id: -1, name: "--请选择--" },
+        { id: 1, name: "Nodejs" },
+        { id: 2, name: "Webpack" },
+        { id: 2, name: "Egg" }
+      ];
+    },
+    total() {
       return this.$store.state.articleTotal;
     },
-    articleList(){
+    articleList() {
       return this.$store.state.articleList;
     }
   },
   preFetch({ state, dispatch, commit }) {
-    return dispatch("FETCH_ARTICLE_LIST", { pageIndex: 1, pageSize : 10 });
+    return dispatch("FETCH_ARTICLE_LIST", { pageIndex: 1, pageSize: 10 });
   },
   beforeMount() {
     console.log();
-    if(!(this.articleList && this.articleList.length > 0)){
+    if (!(this.articleList && this.articleList.length > 0)) {
       this.fetch();
     }
   }
