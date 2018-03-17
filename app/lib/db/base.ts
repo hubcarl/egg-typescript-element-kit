@@ -1,3 +1,5 @@
+'use strict';
+import Condition from '../condition';
 export default class DB {
   public instance;
   public name: string;
@@ -21,8 +23,7 @@ export default class DB {
     return null;
   }
 
-  public getPager(collectionName: string, where: object, pageIndex: number = 1, pageSize: number = 10,
-                  orderByField: string = 'id', orderBy: string = 'desc') {
+  public getPager(collectionName: string, condition: Condition) {
     return null;
   }
 }

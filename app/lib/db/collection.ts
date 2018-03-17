@@ -1,4 +1,5 @@
 import DB from './base';
+import Condition from '../condition';
 export default class Collection {
   private db: DB;
   private name: string;
@@ -19,7 +20,15 @@ export default class Collection {
     return this.db.delete(this.name, field);
   }
 
-  public getPager(where: object, pageIndex: number = 1, pageSize: number = 10, orderByField: string = 'id', orderBy: string = 'desc') {
-    return this.db.getPager(this.name, where, pageIndex, pageSize, orderByField, orderBy);
+  public getPager(condition: Condition) {
+    return this.db.getPager(this.name, condition);
+  }
+
+  public getOrderAscByField(field: string) {
+    return this.get().orderBy(field, 'asc').value();
+  }
+
+  public getOrderDescByField(field: string) {
+    return this.get().orderBy(field, 'desc').value();
   }
 }

@@ -1,29 +1,30 @@
 import { Controller } from 'egg';
-import * as Model from '../../mocks/article/list';
+import { deserialize } from '@hubcarl/json-typescript-mapper';
 import Article from '../../model/article';
+import Condition from '../../lib/condition';
 export default class AdminController extends Controller {
 
-  public async login() {
-    await this.ctx.renderClient('admin/login/login.js', {});
+  public async login(ctx) {
+    await ctx.renderClient('admin/login/login.js', {});
   }
 
-  public async home() {
-    await this.ctx.render('admin/home/home.js', { url: this.ctx.url.replace(/\/admin/, '') });
+  public async home(ctx) {
+    await ctx.render('admin/home/home.js', { url: this.ctx.url.replace(/\/admin/, '') });
   }
 
-  public async list() {
-    const { title, cagetoryId, tag, pageIndex, pageSize } = this.ctx.request.body;
-    const list = this.service.article.getArtilceList(title, cagetoryId, tag, pageIndex, pageSize);
-    this.ctx.body = list;
+  public async list(ctx) {
+    const condition = deserialize(Condition, ctx.request.body);
+    console.log(condition);
+    this.ctx.body = ctx.service.article.getArtilceList(condition);
   }
 
-  public async add() {
-    const article = this.ctx.request.body;
-    this.ctx.body = this.service.article.saveArticle(article);
+  public async add(ctx) {
+    const article = deserialize(Article, ctx.request.body);
+    ctx.body = this.service.article.saveArticle(article);
   }
 
-  public async detail() {
-    const id = this.ctx.query.id;
-    this.ctx.body = Model.getDetail(id);
+  public async detail(ctx) {
+    const id = ctx.query.id;
+    ctx.body = {};
   }
 }

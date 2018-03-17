@@ -1,6 +1,6 @@
 'use strict';
 
-import { JsonProperty } from 'json-typescript-mapper';
+import { JsonProperty } from '@hubcarl/json-typescript-mapper';
 
 export default class Article {
   @JsonProperty('id')

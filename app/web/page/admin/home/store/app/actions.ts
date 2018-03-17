@@ -11,8 +11,8 @@ const host = 'http://localhost:7001';
 
 const actions = {
 
-  FETCH_ARTICLE_LIST: ({ commit, dispatch, state }, query) => {
-    return axios.post(`${host}/admin/api/article/list`, query, {
+  FETCH_ARTICLE_LIST: ({ commit, dispatch, state }, condition) => {
+    return axios.post(`${host}/admin/api/article/list`, condition, {
       headers: {
         'x-csrf-token': state.csrf,
         'Cookie': `csrfToken=${state.csrf}`

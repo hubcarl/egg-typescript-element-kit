@@ -1,4 +1,4 @@
-import FileDB from './lib/db';
+import DB from './lib/db/base';
 
 import AboutController from './controller/about/about';
 import AdminController from './controller/admin/admin';
@@ -9,11 +9,11 @@ import ArticleService from './service/article';
 
 declare module 'egg' {
   interface Application {
-    db: FileDB;
+    db: DB;
   }
 
   interface Context {
-    db: FileDB;
+    db: DB;
   }
 
   interface IController {

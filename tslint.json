@@ -13,7 +13,8 @@
     "interface-name": false,
     "arrow-parens": false,
     "no-console": false,
-    "max-line-length": false
+    "max-line-length": false,
+    "only-arrow-functions": false
   },
   "rulesDirectory": ["app"]
 }
