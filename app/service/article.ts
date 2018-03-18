@@ -14,11 +14,24 @@ export default class ArticeService extends Service {
   }
 
   public getArtilceList(condition: Condition) {
+    if (condition.categoryId) {
+      condition.where.categoryId = condition.categoryId;
+    }
+    if (condition.status) {
+      condition.where.status = condition.status;
+    }
+    if (condition.title) {
+      condition.like.title = condition.title;
+    }
     return this.colllection.getPager(condition);
   }
 
   public saveArticle(data: object) {
     const article: Article = deserialize(Article, data);
+    if (article.id) {
+      return this.colllection.update({ id: article.id }, article);
+    }
+    article.id = this.ctx.db.getUniqueId();
     return this.colllection.add(article);
   }
 }

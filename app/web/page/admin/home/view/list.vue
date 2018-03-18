@@ -7,14 +7,14 @@
                 <el-option v-for="item in categories"
                           :key="item.id"
                           :label="item.name"
-                          :value="item.id">
+                          :value="item.categoryId">
                 </el-option>
               </el-select>
-              <label> 状态:</label><el-select  v-model="q.statusId" placeholder="状态">
+              <label> 状态:</label><el-select  v-model="q.status" placeholder="状态">
                 <el-option v-for="item in status"
                           :key="item.id"
                           :label="item.name"
-                          :value="item.id">
+                          :value="item.status">
                 </el-option>
               </el-select>
               <el-button class="search-button" type="primary" @click="fetch()">查询</el-button>
@@ -39,8 +39,7 @@
         </el-table-column>
         <el-table-column
           prop="title"
-          label="标题"
-          min-width="400">
+          label="标题">
           <template slot-scope="props">
             <router-link :to="'/article/detail/'+ props.row.id">{{props.row.title}}</router-link>
           </template>
@@ -49,11 +48,6 @@
           prop="hits"
           label="点赞"
           width="100">
-        </el-table-column>
-        <el-table-column
-          prop="url"
-          label="链接"
-          min-width="400">
         </el-table-column>
         <el-table-column
           prop="status"
@@ -110,8 +104,8 @@ export default {
     return {
       q: {
         title: "",
-        categoryId: -1,
-        statusId: -1,
+        categoryId: 0,
+        statusId: 0,
         pageIndex: 1,
         pageSize: 10
       },
@@ -168,17 +162,17 @@ export default {
   computed: {
     status() {
       return [
-        { id: -1, name: "--请选择--" },
-        { id: 0, name: "草稿" },
-        { id: 1, name: "已发布" }
+        { status: 0, name: "--请选择--" },
+        { status: 1, name: "已发布" },
+        { status: 2, name: "草稿" }
       ];
     },
     categories() {
       return [
-        { id: -1, name: "--请选择--" },
-        { id: 1, name: "Nodejs" },
-        { id: 2, name: "Webpack" },
-        { id: 2, name: "Egg" }
+        { categoryId: 0, name: "--请选择--" },
+        { categoryId: 1, name: "Nodejs" },
+        { categoryId: 2, name: "Webpack" },
+        { categoryId: 3, name: "Egg" }
       ];
     },
     total() {

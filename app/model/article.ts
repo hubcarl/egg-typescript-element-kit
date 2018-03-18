@@ -4,7 +4,7 @@ import { JsonProperty } from '@hubcarl/json-typescript-mapper';
 
 export default class Article {
   @JsonProperty('id')
-  public id: number;
+  public id: string;
   @JsonProperty('title')
   public title: string;
   @JsonProperty('summary')
@@ -29,5 +29,7 @@ export default class Article {
     this.title = undefined;
     this.summary = undefined;
     this.tag = undefined;
+    this.hits = 0;
+    this.createTime = Date.now();
   }
 }

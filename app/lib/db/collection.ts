@@ -16,6 +16,10 @@ export default class Collection {
     return this.db.add(this.name, json);
   }
 
+  public update(where: object, json: object) {
+    return this.db.update(this.name, where, json);
+  }
+
   public delete(field: number | string) {
     return this.db.delete(this.name, field);
   }

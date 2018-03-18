@@ -1,8 +1,8 @@
-import * as lowdb from "lowdb";
-import * as lodashid from "lodash-id";
-import * as FileSync from "lowdb/adapters/FileSync";
-import BaseDB from "./base";
-import Condition from "../condition";
+import * as lowdb from 'lowdb';
+import * as lodashid from 'lodash-id';
+import * as FileSync from 'lowdb/adapters/FileSync';
+import BaseDB from './base';
+import Condition from '../condition';
 export default class FileDB extends BaseDB {
   public instance;
   constructor(name?: string) {
@@ -27,6 +27,10 @@ export default class FileDB extends BaseDB {
       .write();
   }
 
+  public update(collectionName: string, where: object, json: object) {
+    return this.get(collectionName).find(where).assign(json).write();
+  }
+
   public delete(collectionName: string, field: number | string) {
     return this.get(collectionName).write();
   }
@@ -46,7 +50,7 @@ export default class FileDB extends BaseDB {
       .filter(where)
       .filter(item => {
         return Object.keys(like).reduce((isLike, key) => {
-          return isLike && item[key] && item[key].contains(like[key]);
+          return isLike && item[key] && item[key].indexOf(like[key]) > -1;
         }, true);
       })
       .orderBy(orderByField, orderBy);
