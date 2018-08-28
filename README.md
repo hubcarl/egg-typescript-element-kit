@@ -79,8 +79,6 @@ npm start
 
 #### 3.2 启动应用
 
-首次运行请先运行一次 `npm run tsc`
-
 ```bash
 npm run dev
 ```
