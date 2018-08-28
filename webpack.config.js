@@ -1,6 +1,4 @@
 'use strict';
-const path = require('path');
-const ServiceWorkerWebpackPlugin = require('service-worker-precache-webpack-plugin');
 module.exports = {
   egg: true,
   framework: 'vue',
